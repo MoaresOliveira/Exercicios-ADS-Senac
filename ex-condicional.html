@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Solicitação</title>
+	</head>
+	<body>
+		<h1>Hello World!</h1>
+		<script>
+			/*
+            – Filho, se tiver arroz tipo1, traga 1 kg dele e, com o troco, traga 2 kg de feijão preto. 
+            Caso tenha apenas arroz tipo 2, traga 3 kg dele e só 1 kg de feijão branco.
+
+            – Mãe, e se não tiver arroz? – você pergunta. 
+
+            – Nesse caso, filho, traga 2 kg de lentilha e 1 kg de linguiça defumada.
+
+            Então, você pega o dinheiro e vai para o mercado. 
+            Chegando lá, compara as quantidades pelo que sua mãe determinou 
+            (o tipo do arroz vai determinar a quantidade a ser comprada, assim como a quantidade e o tipo do feijão). 
+        */
+			let produtos = [
+				"Arroz Tipo 1",
+				"Arroz Tipo 2",
+				"Feijão Preto",
+				"Feijão Branco",
+				"Lentilha",
+				"Linguiça Defumada",
+			];
+			let arrozT1,
+				arrozT2,
+				feijaoPreto,
+				feijaoBranco,
+				lentilha,
+				linguica,
+				carrinho = "Carrinho: ",
+				compra = 0;
+
+			function inserirPreco(produto) {
+				preco = parseInt(prompt(`Insira o preço do Kg do ${produto}`));
+				if (preco < 0) {
+					alert("O preço não pode ser menor que 0");
+					preco = parseInt(
+						prompt(`Insira o preço do Kg do ${produto}`)
+					);
+				}
+				return preco;
+			}
+
+			function informarValorCompra(v1, v2) {
+				alert("O valor da compra é: R$" + (v1 + v2));
+			}
+
+			alert(
+				"Insira preço dos produtos, se não houver tal item, insira 0"
+			);
+
+			arrozT1 = inserirPreco(produtos[0]);
+			arrozT2 = inserirPreco(produtos[1]);
+			feijaoPreto = inserirPreco(produtos[2]);
+			feijaoBranco = inserirPreco(produtos[3]);
+			lentilha = inserirPreco(produtos[4]);
+			linguica = inserirPreco(produtos[5]);
+
+			console.log(`
+            Arroz Tipo 1 = ${arrozT1}\n
+            Arroz Tipo 2 = ${arrozT2}\n
+            Feijão Preto = ${feijaoPreto}\n
+            Feijão Branco = ${feijaoBranco}\n
+            Lentilha = ${lentilha}\n
+            Linguiça Defumada = ${linguica}\n
+        `);
+
+			if (arrozT1 != 0) {
+				feijaoPreto == 0
+					? (carrinho += `1Kg ${produtos[0]} (${produtos[2]} fora de estoque)`)
+					: (carrinho += `1Kg ${produtos[0]}, 2Kg ${produtos[2]}`);
+
+				compra = arrozT1 + feijaoPreto * 2;
+			} else if (arrozT2 != 0) {
+				feijaoBranco == 0
+					? (carrinho += `3Kg ${produtos[1]} (${produtos[3]} fora de estoque)`)
+					: (carrinho += `3Kg ${produtos[1]}, 1Kg ${produtos[3]}`);
+				compra = arrozT2 * 3 + feijaoBranco;
+			} else if (lentilha != 0) {
+				linguica == 0
+					? (carrinho += `2Kg ${produtos[4]} (${produtos[5]} fora de estoque)`)
+					: (carrinho += `2Kg ${produtos[4]}, 1Kg ${produtos[5]}`);
+
+				compra = lentilha * 2 + linguica;
+			} else {
+				alert("O mercado não tinha estoque de nada!");
+			}
+			if (compra != 0) {
+				alert(carrinho + "\nO valor total da compra é: R$" + compra);
+			}
+		</script>
+	</body>
+</html>

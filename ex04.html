@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Exercicio 4
+        Um	caixa	precisa	de	um	programa	que	o	auxilie	no	fornecimento	de	valores	com	o	mínimo	
+        de	cédulas/moedas	possíveis.	Monte	um	programa	que	seja	fornecido	o	valor	(inteiro)	a	
+        ser	fornecido	e	tenha	como	saída	o	total	de	cédulas	utilizadas,	nos	valores	de	100,	50,	20,	
+        10,	5,	2	e	1
+        */
+
+        let cedula100 = 0, cedula50 = 0, cedula20 = 0, cedula10 = 0, cedula5 = 0, cedula2 = 0, cedula1 = 0;
+        let valor = parseInt(prompt("Insira um valor inteiro:"));
+        let valorInicial = valor;
+        while(valor >= 1){
+            if(valor >= 100){
+                cedula100 += 1
+                valor -= 100
+            }else if(valor >= 50){
+                cedula50 += 1
+                valor -= 50
+            }else if(valor >= 20){
+                cedula20 += 1
+                valor -= 20
+            }else if(valor >= 10){
+                cedula10 += 1
+                valor -= 10
+            }else if(valor >= 5){
+                cedula5 += 1
+                valor -= 5
+            }else if(valor >= 2){
+                cedula2 += 1
+                valor -= 2
+            }else if(valor >= 1){
+                cedula1 += 1
+                valor -= 1
+            }
+        }
+        alert(`
+            Valor: R$${valorInicial}
+            Cédulas de R$100: ${cedula100}
+            Cédulas de R$50: ${cedula50}
+            Cédulas de R$20: ${cedula20}
+            Cédulas de R$10: ${cedula10}
+            Cédulas de R$5: ${cedula5}
+            Cédulas de R$2: ${cedula2}
+            Cédulas de R$1: ${cedula1} 
+        `);
+    </script>
+</body>
+</html>

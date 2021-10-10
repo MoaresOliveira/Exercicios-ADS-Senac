@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio 2</title>
+</head>
+<body>
+    <script>
+        /*
+        Exercicio 2
+        Um	 município	 deseja	 saber	 a	 porcentagem	 de	 votos	 de	 três	 candidatos,	 além	 da	
+        porcentagem	de	votos	brancos	e	nulos.	Monte	um	programa	que	receba	como	entrada	o	
+        número	de	votos	de	cada	um	dos	três	candidatos	e	também	os	votos	nulos	e	brancos.	Ao	
+        final,	o	programa	deve	apresentar	o	total	de	votos	e	a	porcentagem,	em	relação	a	todos	
+        os	eleitores	que	votaram,	de	votos	de	cada	candidato,	votos	nulos	e	votos	em	branco
+        */
+       let candidatoA = parseInt(prompt ("Quantidade de votos Candidato A:"));
+       let candidatoB = parseInt(prompt ("Quantidade de votos Candidato B:"));
+       let candidatoC = parseInt(prompt ("Quantidade de votos Candidato C:"));
+       let brancos = parseInt(prompt("Quantidade de votos em branco:"));
+       let nulos = parseInt(prompt("Quantidade de votos nulos:"));
+       let totalVotos = candidatoA + candidatoB + candidatoC + brancos + nulos;
+       alert(`
+        O candidato A teve ${(candidatoA*100) / totalVotos}% com ${candidatoA} votos.\n
+        O candidato B teve ${(candidatoB*100) / totalVotos}% com ${candidatoB} votos.\n
+        O candidato C teve ${(candidatoC*100) / totalVotos}% com ${candidatoC} votos.\n
+        E ${(brancos*100) / totalVotos}% dos votos foram brancos, sendo ${brancos} votos.\n
+        E ${(nulos*100) / totalVotos}% dos votos foram nulos, sendo ${nulos} votos.\n
+        O total de votos foi ${totalVotos}\n
+       `);
+    </script>
+</body>
+</html>
